@@ -22,6 +22,14 @@ class MeetupsController < ApplicationController
     redirect_to meetups_path
   end
 
+  def update
+    @meetup = Meetup.find(params[:id])
+
+    @meetup.update(meetup_params)
+
+    redirect_to meetups_path, notice: "Update Success"
+  end
+
   private
 
   def meetup_params
