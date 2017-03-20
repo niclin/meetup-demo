@@ -11,6 +11,10 @@ class MeetupsController < ApplicationController
     @meetup = Meetup.find(params[:id])
   end
 
+  def edit
+    @meetup = Meetup.find(params[:id])
+  end
+
   def create
     @meetup = Meetup.new(meetup_params)
     @meetup.save
