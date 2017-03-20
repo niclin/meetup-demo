@@ -6,4 +6,19 @@
   <p><%= @meetup.description %></p>
 </div>
 
-<%= @meetup.comments_count %>
+<% if @meetup.comments.empty? %>
+  <p> 尚未有人留言 </p>
+<% else %>
+  <% @floor = 1 %>
+  <% @meetup.comments.each do |comment| %>
+    <%= @floor %>樓
+    <div class="col-md-12">
+      <p><%= comment.message %></p>
+    </div>
+    <% @floor = @floor + 1 %>
+    </br>
+  <% end%>
+<% end %>
+
+
+<%= render 'comment_form' %>
