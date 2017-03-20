@@ -30,6 +30,13 @@ class MeetupsController < ApplicationController
     redirect_to meetups_path, notice: "Update Success"
   end
 
+  def destroy
+    @meetup = Meetup.find(params[:id])
+    @meetup.destroy
+    flash[:alert] = "meetup deleted"
+    redirect_to meetups_path
+  end
+
   private
 
   def meetup_params
