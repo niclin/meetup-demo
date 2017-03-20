@@ -7,6 +7,10 @@ class MeetupsController < ApplicationController
     @meetup = Meetup.new
   end
 
+  def show
+    @meetup = Meetup.find(params[:id])
+  end
+
   def create
     @meetup = Meetup.new(meetup_params)
     @meetup.save
