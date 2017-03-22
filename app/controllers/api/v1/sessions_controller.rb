@@ -8,10 +8,6 @@ class Api::V1::SessionsController < Api::V1::BaseController
     end
   end
 
-  def api_error(opts = {})
-    render nothing: true, status: opts[:status]
-  end
-
   private
 
   def create_params
